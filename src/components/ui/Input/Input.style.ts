@@ -19,6 +19,10 @@ export const InputContainer = styled.div`
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;
 
 export const InputField = styled.input`

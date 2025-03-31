@@ -31,4 +31,8 @@ export const Text = styled.span<{ isCompleted: boolean }>`
   font-size: 22px;
   color: ${({ isCompleted }) => (isCompleted ? '#B0B0B0' : 'black')};
   text-decoration: ${({ isCompleted }) => (isCompleted ? 'line-through' : 'none')};
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;

@@ -6,4 +6,8 @@ export const Button = styled.button<{ active: boolean }>`
   cursor: pointer;
   border: 1px solid ${({ active }) => (active ? '#d1a1a1' : 'transparent')};
   border-radius: 5px;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;
