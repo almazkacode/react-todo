@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import 'normalize.css';
+import * as SC from './App.style';
+import { useState, useCallback, useMemo } from 'react';
+import { DATA, TaskInterface } from './data';
+import { Input } from './components/ui/Input/Input';
+import { TaskItem } from './components/elements/TaskItem/TaskItem';
+import { Filters, FilterType } from './components/elements/Filters/Filters';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const [tasks, setTasks] = useState<TaskInterface[]>(DATA);
+  const [filter, setFilter] = useState<FilterType>('all');
+
+  const toggleTask = useCallback((id: string) => {
+    setTasks((prev) =>
+      prev.map((task) => (task.id === id ? { ...task, isCompleted: !task.isCompleted } : task)),
+    );
+  }, []);
+
+  const onClearCompletedTasks = () => {
+    setTasks((prev) => prev.filter((task) => !task.isCompleted));
+  };
+
+  const currentTasksCount = tasks.filter((task) => !task.isCompleted).length;
+
+  const filteredTasks = useMemo(() => {
+    return tasks.filter((task) => {
+      if (filter === 'all') return true;
+      if (filter === 'active') return !task.isCompleted;
+      if (filter === 'completed') return task.isCompleted;
+      return true;
+    });
+  }, [tasks, filter]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <SC.Container>
+      <SC.CentralBlock>
+        <SC.Title>todos</SC.Title>
+        <Input setTasks={setTasks} />
+        {filteredTasks.map((task) => (
+          <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
+        ))}
+        <SC.Footer>
+          <SC.FooterText>{currentTasksCount} items left</SC.FooterText>
+          <Filters filter={filter} setFilter={setFilter} />
+          <SC.ClearButton onClick={onClearCompletedTasks} aria-label="Clear completed">
+            Clear completed
+          </SC.ClearButton>
+        </SC.Footer>
+      </SC.CentralBlock>
+    </SC.Container>
+  );
+};
