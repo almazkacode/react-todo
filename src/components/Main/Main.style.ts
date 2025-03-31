@@ -8,14 +8,17 @@ export const Container = styled.div`
 
 export const CentralBlock = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
   height: auto;
   padding: 30px;
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
 `;
 
 export const Title = styled.h1`
+  padding: 20px;
   font-size: 100px;
   font-weight: 100;
   color: #d1a1a1;
