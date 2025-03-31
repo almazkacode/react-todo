@@ -5,6 +5,7 @@ import { DATA, TaskInterface } from './data';
 import { Input } from './components/ui/Input/Input';
 import { TaskItem } from './components/elements/TaskItem/TaskItem';
 import { Filters, FilterType } from './components/elements/Filters/Filters';
+import { Button } from './components/ui/Button/Button';
 
 export const App = () => {
   const [tasks, setTasks] = useState<TaskInterface[]>(DATA);
@@ -42,9 +43,7 @@ export const App = () => {
         <SC.Footer>
           <SC.FooterText>{currentTasksCount} items left</SC.FooterText>
           <Filters filter={filter} setFilter={setFilter} />
-          <SC.ClearButton onClick={onClearCompletedTasks} aria-label="Clear completed">
-            Clear completed
-          </SC.ClearButton>
+          <Button onClick={onClearCompletedTasks} label="Clear completed" />
         </SC.Footer>
       </SC.CentralBlock>
     </SC.Container>

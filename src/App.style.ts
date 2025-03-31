@@ -60,11 +60,6 @@ export const Footer = styled.div`
   }
 `;
 
-export const ClearButton = styled.button`
-  font-size: inherit;
-  cursor: pointer;
-`;
-
 export const FooterText = styled.p`
   font-size: inherit;
 `;
