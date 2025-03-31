@@ -6,6 +6,7 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import vitest from 'eslint-plugin-vitest';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
@@ -16,6 +17,7 @@ export default tseslint.config(
       'react-hooks': eslintReactHooks,
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
+      vitest,
     },
     settings: {
       react: {
@@ -24,7 +26,7 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js'],
+    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js', 'vitest.config.js'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -34,6 +36,7 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.node,
         ...globals.es2020,
+        ...globals.vitest,
       },
       parserOptions: {
         project: ['tsconfig.json', 'tsconfig.node.json'],

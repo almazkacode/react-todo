@@ -42,7 +42,9 @@ export const App = () => {
         <SC.Footer>
           <SC.FooterText>{currentTasksCount} items left</SC.FooterText>
           <Filters filter={filter} setFilter={setFilter} />
-          <SC.ClearButton onClick={onClearCompletedTasks}>Clear completed</SC.ClearButton>
+          <SC.ClearButton onClick={onClearCompletedTasks} aria-label="Clear completed">
+            Clear completed
+          </SC.ClearButton>
         </SC.Footer>
       </SC.CentralBlock>
     </SC.Container>

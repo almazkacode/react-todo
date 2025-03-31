@@ -7,7 +7,7 @@ interface FilterButtonProps {
 }
 export const FilterButton = ({ label, isActive, onClick }: FilterButtonProps) => {
   return (
-    <SC.Button onClick={onClick} active={isActive}>
+    <SC.Button onClick={onClick} active={isActive} aria-label={label}>
       {label}
     </SC.Button>
   );
