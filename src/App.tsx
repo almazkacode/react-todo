@@ -1,10 +1,9 @@
 import 'normalize.css';
-
+import * as SC from './App.style';
 import { useState } from 'react';
+import { DATA, TaskInterface } from './data';
 import { Input } from './components/ui/Input/Input';
 import { TaskItem } from './components/elements/TaskItem/TaskItem';
-import * as SC from './App.style';
-import { DATA, TaskInterface } from './data';
 import { Filters, FilterType } from './components/elements/Filters/Filters';
 
 export const App = () => {
