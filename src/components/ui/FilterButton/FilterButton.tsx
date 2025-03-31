@@ -5,8 +5,7 @@ interface FilterButtonProps {
   isActive: boolean;
   onClick: () => void;
 }
-
-export const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick }) => {
+export const FilterButton = ({ label, isActive, onClick }: FilterButtonProps) => {
   return (
     <SC.Button onClick={onClick} active={isActive}>
       {label}

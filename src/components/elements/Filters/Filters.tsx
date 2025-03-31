@@ -1,5 +1,6 @@
 import * as SC from './Filters.style';
 import { FilterButton } from '../../ui/FilterButton/FilterButton';
+import React from 'react';
 
 export type FilterType = 'all' | 'active' | 'completed';
 
@@ -14,7 +15,7 @@ const filterOptions: { label: string; value: FilterType }[] = [
   { label: 'Completed', value: 'completed' },
 ];
 
-export const Filters: React.FC<FiltersProps> = ({ filter, setFilter }) => {
+export const Filters = React.memo(({ filter, setFilter }: FiltersProps) => {
   return (
     <SC.FilterContainer>
       {filterOptions.map(({ label, value }) => (
@@ -27,4 +28,4 @@ export const Filters: React.FC<FiltersProps> = ({ filter, setFilter }) => {
       ))}
     </SC.FilterContainer>
   );
-};
+});

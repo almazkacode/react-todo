@@ -1,12 +1,12 @@
 import * as SC from './Input.style';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { TaskInterface } from '../../../data';
 
 interface InputProps {
   setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>;
 }
 
-export const Input: React.FC<InputProps> = ({ setTasks }) => {
+export const Input = React.memo(({ setTasks }: InputProps) => {
   const [value, setValue] = useState<string>('');
 
   const addTask = (title: string) => {
@@ -33,4 +33,4 @@ export const Input: React.FC<InputProps> = ({ setTasks }) => {
       />
     </SC.InputContainer>
   );
-};
+});
