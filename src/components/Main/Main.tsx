@@ -13,6 +13,12 @@ export const Main: React.FC = () => {
     );
   };
 
+  const onClearCompletedTasks = () => {
+    setTasks((prev) => prev.filter((task) => !task.isCompleted));
+  };
+
+  const currentTasksCount = tasks.filter((task) => !task.isCompleted).length;
+
   return (
     <SC.Container>
       <SC.CentralBlock>
@@ -21,6 +27,10 @@ export const Main: React.FC = () => {
         {tasks.map((task) => (
           <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
         ))}
+        <SC.Footer>
+          <SC.FooterText>{currentTasksCount} items left</SC.FooterText>
+          <SC.ClearButton onClick={onClearCompletedTasks}>Clear completed</SC.ClearButton>
+        </SC.Footer>
       </SC.CentralBlock>
     </SC.Container>
   );

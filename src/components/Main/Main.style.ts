@@ -23,3 +23,24 @@ export const Title = styled.h1`
   font-weight: 100;
   color: #d1a1a1;
 `;
+
+export const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  background-color: white;
+  font-size: 16px;
+`;
+
+export const ClearButton = styled.button`
+  font-size: inherit;
+  cursor: pointer;
+`;
+
+export const FooterText = styled.p`
+  font-size: inherit;
+`;
