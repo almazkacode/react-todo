@@ -1,5 +1,5 @@
 import * as SC from './TaskItem.style';
-import { TaskInterface } from '../../data';
+import { TaskInterface } from '../../../data';
 
 interface TaskItemProps {
   task: TaskInterface;

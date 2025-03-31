@@ -1,6 +1,6 @@
 import * as SC from './Input.style';
 import { useState } from 'react';
-import { TaskInterface } from '../../data';
+import { TaskInterface } from '../../../data';
 
 interface InputProps {
   setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>;
