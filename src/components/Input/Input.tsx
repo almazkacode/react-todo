@@ -6,7 +6,7 @@ interface InputProps {
   setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>;
 }
 
-const Input: React.FC<InputProps> = ({ setTasks }) => {
+export const Input: React.FC<InputProps> = ({ setTasks }) => {
   const [value, setValue] = useState<string>('');
 
   const addTask = (title: string) => {
@@ -34,5 +34,3 @@ const Input: React.FC<InputProps> = ({ setTasks }) => {
     </SC.InputContainer>
   );
 };
-
-export default Input;

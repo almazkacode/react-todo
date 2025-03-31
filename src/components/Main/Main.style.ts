@@ -11,7 +11,6 @@ export const CentralBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
   height: auto;
   padding: 30px;
   background-color: #f0f0f0;
@@ -19,6 +18,7 @@ export const CentralBlock = styled.div`
 
 export const Title = styled.h1`
   padding: 20px;
+  margin-bottom: 30px;
   font-size: 100px;
   font-weight: 100;
   color: #d1a1a1;
