@@ -19,6 +19,7 @@
 - React Нooks
 - TypeScript
 - Styled Components
+- SCSS
 - Адаптивная верстка
 - Тестирование с использованием Vitest
 
